@@ -35,6 +35,14 @@ describe("Calculator", () => {
     cy.get(".display").should("contain", "28");
   });
 
+  it("should output as expected for calculatons with positive numbers", () => {
+    cy.get("#number2").click();
+    cy.get("#operator-add").click();
+    cy.get("#number5").click();
+    cy.get("#operator-equals").click();
+    cy.get(".display").should("contain", "7");
+  });
+
   it("should output as expected for calculations with very large numbers", () => {
     cy.get("#number5").click();
     cy.get("#number5").click();
