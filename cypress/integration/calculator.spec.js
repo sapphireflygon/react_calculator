@@ -16,12 +16,39 @@ describe("Calculator", () => {
     cy.get(".display").should("contain", "3359");
   });
 
-  it("should do the arithmetical operations and update the running total shown on the display", () => {
+  it("should be able to carry out addition operations and update the running total shown on the display", () => {
     cy.get("#number4").click();
     cy.get("#operator-add").click();
     cy.get("#number6").click();
     cy.get("#operator-equals").click();
     cy.get(".display").should("contain", "10");
+  });
+
+  it("should carry out subtraction operations and update the running total shown on the display", () => {
+    cy.get("#number6").click();
+    cy.get("#number3").click();
+    cy.get("#operator-subtract").click();
+    cy.get("#number4").click();
+    cy.get("#operator-equals").click();
+    cy.get(".display").should("contain", "59");
+  });
+
+  it("should carry out multiplication operations and update the running total shown on the display", () => {
+    cy.get("#number1").click();
+    cy.get("#number4").click();
+    cy.get("#operator-multiply").click();
+    cy.get("#number4").click();
+    cy.get("#operator-equals").click();
+    cy.get(".display").should("contain", "56");
+  });
+
+  it("should carry out division operations and update the running total shown on the display", () => {
+    cy.get("#number8").click();
+    cy.get("#number0").click();
+    cy.get("#operator-divide").click();
+    cy.get("#number4").click();
+    cy.get("#operator-equals").click();
+    cy.get(".display").should("contain", "20");
   });
 
   it("should chain multiple operations together", () => {
